@@ -1,0 +1,55 @@
+{
+    "mockDirectory": "src/mocks",
+    "quiet": false,
+    "port": "7878",
+    "latency": 50,
+    "allowedDomains": [
+        "*"
+    ],
+    "allowedHeaders": [
+        "*"
+    ],
+    "corsCredentials": true,
+    "webServices": {
+        "auth/current": {
+            "verbs": [
+                "get"
+            ],
+            "mockFile": "uaa/current.json"
+        },
+        "auth/login": {
+            "verbs": [
+                "post"
+            ],
+            "headers": {
+                "Access-Control-Expose-Headers": "Authorization",
+                "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTUzODU4NzU5OH0.dAQclGZw8dNmwuydMnGtP0DYlL342IBUn6PiJXWHVVQtmc7dvJnY3iFX-ZrMaIy9qmKwzxwuQWgWwvQDGKbHeg"
+            },
+            "mockFile": "uaa/login.json"
+        },
+        "auth/sign-up": {
+            "verbs": [
+                "post"
+            ],
+            "mockFile": "uaa/sign-up.json"
+        },
+        "trading/search": {
+            "verbs": [
+                "get"
+            ],
+            "mockFile": "trading/search.json"
+        },
+        "trading/time-series": {
+            "verbs": [
+                "get"
+            ],
+            "mockFile": "trading/time-series.json"
+        },
+        "trading/shares": {
+            "verbs": [
+                "get"
+            ],
+            "mockFile": "trading/shares.json"
+        }
+    }
+}

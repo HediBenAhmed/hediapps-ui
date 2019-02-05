@@ -1,0 +1,44 @@
+{
+    "content": [
+        {
+            "id": "5bb60b2590575b000164ccc6",
+            "name": "BNP PARIBAS",
+            "placementDate": "2018-02-01",
+            "entryValue": 50,
+            "numberShares": 2,
+            "dataset_code": "BNP",
+            "database_code": "EURONEXT"
+        },
+        {
+            "id": "5bb60dc090575b000164ccc7",
+            "name": "APPLE",
+            "placementDate": "2018-01-01",
+            "entryValue": 100,
+            "numberShares": 1,
+            "dataset_code": "APPLE",
+            "database_code": "EURONEXT"
+        }
+    ],
+    "pageable": {
+        "sort": {
+            "sorted": false,
+            "unsorted": true
+        },
+        "pageSize": 100,
+        "pageNumber": 0,
+        "offset": 0,
+        "paged": true,
+        "unpaged": false
+    },
+    "last": true,
+    "totalPages": 1,
+    "totalElements": 2,
+    "sort": {
+        "sorted": false,
+        "unsorted": true
+    },
+    "numberOfElements": 2,
+    "first": true,
+    "size": 100,
+    "number": 0
+}

@@ -1,0 +1,13 @@
+{
+  "id": 1,
+  "username": "admin",
+  "password": "",
+  "firstName": "firstname",
+  "lastName": "lastname",
+  "email": "email",
+  "accountNonExpired": true,
+  "accountNonLocked": true,
+  "credentialsNonExpired": true,
+  "enabled": true,
+  "authorities": []
+}

@@ -1,0 +1,97 @@
+{
+    "dataset": {
+        "id": 9819400,
+        "dataset_code": "BNP",
+        "database_code": "EURONEXT",
+        "name": "Bnp Paribas Act A (BNP)",
+        "description": "Stock Prices for Bnp Paribas Act A from the Euronext Stock Exchange. Currency: EUR. Market: Euronext Paris",
+        "refreshed_at": "2018-09-21T17:15:33.506Z",
+        "newest_available_date": "2018-09-21",
+        "oldest_available_date": "2014-02-14",
+        "column_names": [
+            "Date",
+            "Open",
+            "High",
+            "Low",
+            "Last",
+            "Volume",
+            "Turnover"
+        ],
+        "frequency": "daily",
+        "type": "Time Series",
+        "premium": false,
+        "limit": 1,
+        "transform": null,
+        "column_index": null,
+        "start_date": "2014-02-14",
+        "end_date": "2018-09-19",
+        "data": [
+            {
+                "date": "2018-09-30",
+                "open": 59.63,
+                "high": 55.34,
+                "low": 54.28,
+                "last": 59.53,
+                "volume": 10704007,
+                "turnover": 586430282.4
+            },
+            {
+                "date": "2018-09-29",
+                "open": 58.63,
+                "high": 55.34,
+                "low": 54.28,
+                "last": 58.53,
+                "volume": 10704007,
+                "turnover": 586430282.4
+            },
+            {
+                "date": "2018-09-28",
+                "open": 54.63,
+                "high": 55.34,
+                "low": 54.28,
+                "last": 54.53,
+                "volume": 10704007,
+                "turnover": 586430282.4
+            },
+            {
+                "date": "2018-09-27",
+                "open": 55.63,
+                "high": 55.34,
+                "low": 54.28,
+                "last": 55.53,
+                "volume": 10704007,
+                "turnover": 586430282.4
+            },
+            {
+                "date": "2018-09-26",
+                "open": 54.63,
+                "high": 55.34,
+                "low": 54.28,
+                "last": 54.53,
+                "volume": 10704007,
+                "turnover": 586430282.4
+            },
+            {
+                "date": "2018-09-25",
+                "open": 58.63,
+                "high": 55.34,
+                "low": 54.28,
+                "last": 58.53,
+                "volume": 10704007,
+                "turnover": 586430282.4
+            },
+            {
+                "date": "2018-09-24",
+                "open": 50.63,
+                "high": 55.34,
+                "low": 54.28,
+                "last": 50.53,
+                "volume": 10704007,
+                "turnover": 586430282.4
+            }
+        ],
+        "collapse": null,
+        "order": null,
+        "database_id": 5628
+    }
+}

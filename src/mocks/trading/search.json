@@ -1,0 +1,38 @@
+{
+    "datasets": [
+        {
+            "id": 9819400,
+            "dataset_code": "BNP",
+            "database_code": "EURONEXT",
+            "name": "Bnp Paribas Act A (BNP)",
+            "description": "Stock Prices for Bnp Paribas Act A from the Euronext Stock Exchange. Currency: EUR. Market: Euronext Paris",
+            "refreshed_at": "2018-09-25T17:15:39.577Z",
+            "newest_available_date": "2018-09-25",
+            "oldest_available_date": "2014-02-14",
+            "column_names": [
+                "Date",
+                "Open",
+                "High",
+                "Low",
+                "Last",
+                "Volume",
+                "Turnover"
+            ],
+            "frequency": "daily",
+            "type": "Time Series",
+            "premium": false,
+            "database_id": 5628
+        }
+    ],
+    "meta": {
+        "query": "bnp",
+        "per_page": 100,
+        "current_page": 1,
+        "prev_page": null,
+        "total_pages": 5,
+        "total_count": 489,
+        "next_page": 2,
+        "current_first_item": 1,
+        "current_last_item": 100
+    }
+}
