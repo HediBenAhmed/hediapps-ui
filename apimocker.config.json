@@ -7,7 +7,10 @@
         "*"
     ],
     "allowedHeaders": [
-        "*"
+        "Content-Type",
+        "Accept",
+        "apikey",
+        "authorization"
     ],
     "corsCredentials": true,
     "webServices": {
@@ -32,24 +35,6 @@
                 "post"
             ],
             "mockFile": "uaa/sign-up.json"
-        },
-        "trading/search": {
-            "verbs": [
-                "get"
-            ],
-            "mockFile": "trading/search.json"
-        },
-        "trading/time-series": {
-            "verbs": [
-                "get"
-            ],
-            "mockFile": "trading/time-series.json"
-        },
-        "trading/shares": {
-            "verbs": [
-                "get"
-            ],
-            "mockFile": "trading/shares.json"
         }
     }
 }

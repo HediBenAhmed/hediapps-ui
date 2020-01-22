@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { routerTransition } from '../router.animations';
-import { AuthenticationService } from '../shared/services';
-import { CookieService } from 'ngx-cookie-service';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {routerTransition} from '../router.animations';
+import {AuthenticateService} from '../shared/service/authenticate.service';
 
 @Component({
     selector: 'app-login',
@@ -11,22 +10,24 @@ import { CookieService } from 'ngx-cookie-service';
     animations: [routerTransition()]
 })
 export class LoginComponent implements OnInit {
-
     username: string;
     password: string;
 
-    constructor(public router: Router, private authenticationService: AuthenticationService, private cookieService: CookieService) {
+    constructor(
+        public router: Router,
+        public authenticateService: AuthenticateService
+    ) {
     }
 
     ngOnInit() {
     }
 
     onLoggedin() {
-        this.authenticationService.authenticate(this.username, this.password).toPromise().then(response => {
-
-            this.cookieService.set('hediapps', JSON.stringify(response), new Date(Date.now() + 1000 * 60 * 60));
-            this.router.navigate(['/']);
-        });
-
+        this.authenticateService.login(this.username, this.password)
+            .subscribe(({token, user}) => {
+                localStorage.setItem('currentUser', JSON.stringify(user));
+                localStorage.setItem('token', token);
+                this.router.navigate(['/dashboard']);
+            });
     }
 }

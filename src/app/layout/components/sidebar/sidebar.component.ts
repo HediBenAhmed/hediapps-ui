@@ -1,27 +1,21 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
-import { CookieService } from 'ngx-cookie-service';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {NavigationEnd, Router} from '@angular/router';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
     selector: 'app-sidebar',
     templateUrl: './sidebar.component.html',
     styleUrls: ['./sidebar.component.scss']
 })
-export class SidebarComponent {
-    isActive = false;
-    collapsed = false;
-    showMenu = '';
-    pushRightClass = 'push-right';
+export class SidebarComponent implements OnInit {
+    isActive: boolean;
+    collapsed: boolean;
+    showMenu: string;
+    pushRightClass: string;
 
     @Output() collapsedEvent = new EventEmitter<boolean>();
 
-    constructor(private translate: TranslateService, public router: Router, private cookieService: CookieService) {
-        this.translate.addLangs(['en', 'fr', 'ur', 'es', 'it', 'fa', 'de']);
-        this.translate.setDefaultLang('en');
-        const browserLang = this.translate.getBrowserLang();
-        this.translate.use(browserLang.match(/en|fr|ur|es|it|fa|de/) ? browserLang : 'en');
-
+    constructor(private translate: TranslateService, public router: Router) {
         this.router.events.subscribe(val => {
             if (
                 val instanceof NavigationEnd &&
@@ -32,6 +26,14 @@ export class SidebarComponent {
             }
         });
     }
+
+    ngOnInit() {
+        this.isActive = false;
+        this.collapsed = false;
+        this.showMenu = '';
+        this.pushRightClass = 'push-right';
+    }
+
 
     eventCalled() {
         this.isActive = !this.isActive;
@@ -70,7 +72,7 @@ export class SidebarComponent {
     }
 
     onLoggedout() {
-        this.cookieService.delete('hediapps');
-        this.router.navigate(['/login']);
+        localStorage.removeItem('currentUser');
+        localStorage.removeItem('token');
     }
 }

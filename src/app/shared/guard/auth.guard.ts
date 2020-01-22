@@ -1,20 +1,17 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
-import { CookieService } from 'ngx-cookie-service';
+import { CanActivate } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
-    constructor(private router: Router, private cookieService: CookieService) {
-    }
+    constructor(private router: Router) {}
 
-    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-        if (this.cookieService.check('hediapps')) {
-            // logged in so return  true
+    canActivate() {
+        if (localStorage.getItem('token')) {
             return true;
         }
 
-        // not logged in so redirect to login page with the return url
-        this.router.navigate(['/login'], {queryParams: {redirect: state.url}});
+        this.router.navigate(['/login']);
         return false;
     }
 }

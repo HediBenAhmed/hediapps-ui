@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
-import { CookieService } from 'ngx-cookie-service';
+import {Component, OnInit} from '@angular/core';
+import {NavigationEnd, Router} from '@angular/router';
+import {TranslateService} from '@ngx-translate/core';
+import {User} from '../../../shared/model/user';
 
 @Component({
     selector: 'app-header',
@@ -9,14 +9,10 @@ import { CookieService } from 'ngx-cookie-service';
     styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-    pushRightClass: string = 'push-right';
+    public pushRightClass: string;
+    public currentUser: User;
 
-    constructor(private translate: TranslateService, public router: Router, private cookieService: CookieService) {
-
-        this.translate.addLangs(['en', 'fr', 'ur', 'es', 'it', 'fa', 'de', 'zh-CHS']);
-        this.translate.setDefaultLang('en');
-        const browserLang = this.translate.getBrowserLang();
-        this.translate.use(browserLang.match(/en|fr|ur|es|it|fa|de|zh-CHS/) ? browserLang : 'en');
+    constructor(private translate: TranslateService, public router: Router) {
 
         this.router.events.subscribe(val => {
             if (
@@ -30,6 +26,8 @@ export class HeaderComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.pushRightClass = 'push-right';
+        this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     }
 
     isToggled(): boolean {
@@ -48,8 +46,8 @@ export class HeaderComponent implements OnInit {
     }
 
     onLoggedout() {
-        this.cookieService.delete('hediapps');
-        this.router.navigate(['/login']);
+        localStorage.removeItem('currentUser');
+        localStorage.removeItem('token');
     }
 
     changeLang(language: string) {
